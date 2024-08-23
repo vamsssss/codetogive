@@ -10,7 +10,17 @@ function App() {
             Your account and tags
           </div>
           <div className={"right"}>
-              <Card description="This is the first card." />
+              <div className={"card-row"}>
+                  <Card/>
+                  <Card/>
+                  <Card/>
+              </div>
+              <div className={"card-row"}>
+                  <Card/>
+                  <Card/>
+                  <Card/>
+              </div>
+
           </div>
       </div>
 

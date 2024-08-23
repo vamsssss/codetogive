@@ -1,16 +1,16 @@
 /* Card styling */
 .card {
-    width: 150px;  /* Fixed square size */
-    height: 150px;
+    width: 250px;  /* Fixed square size */
+    height: 180px;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    text-align: center;
+    text-align: left;
     display: flex;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
     margin: 10px; /* Space around the card */
 }
 
