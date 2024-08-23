@@ -37,6 +37,22 @@
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+.container {
+  flex-direction: row;
+  display: flex;
+  height: 100vh; /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+  background-color: aquamarine;
+  border-radius: 10px;
+}
+.leftPanel {
+  flex: 1;
+  display: flex;
+}
+.right {
+  flex: 3;
+  /*border: 2px solid black;*/
+  border-radius: 40px;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
