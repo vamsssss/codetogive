@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  role      String   // 'donor' or 'beneficiary'
+  tags      Tag[]    @relation("UserTags")
+  size      Int?     // Size attribute, nullable if not applicable to all users, used for tie breakers
+  donorMatches       Match[]  @relation("DonorMatches")
+  beneficiaryMatches Match[]  @relation("BeneficiaryMatches")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Tag {
+  id   Int    @id @default(autoincrement())
+  name String
+  timeframe String? // for modelling perishable items
+  users     User[]   @relation("UserTags")
+}
+
+model Match {
+  id           Int   @id @default(autoincrement())
+  donorId      Int
+  beneficiaryId Int
+  score        Float
+  donor          User   @relation("DonorMatches", fields: [donorId], references: [id])
+  beneficiary    User   @relation("BeneficiaryMatches", fields: [beneficiaryId], references: [id])
+}
