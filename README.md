@@ -11,9 +11,12 @@
 
    ```bash
    npm install
-
-2. **Run the server**
+2. **Ensure tests are passing**
+   Should see 2 of 2 passed
+   ```bash
+   npm test
+3. **Run the server**
    ```bash
    npm run dev
 
-3. **Click on the UI**
+4. **Interact with the UI**
