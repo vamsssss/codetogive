@@ -5,6 +5,8 @@ interface Card {
   organization: string;
   availableFood: string;
   tags: string[];
+  address: string;
+  pax: number;
 }
 
 interface CardListProps {
@@ -13,17 +15,20 @@ interface CardListProps {
 
 const CardList: React.FC<CardListProps> = ({ filteredCards }) => {
   return (
-    <div className={"right"}>
+    <div className="card-list-content">
       {filteredCards.length > 0 ? (
-        filteredCards.map((card, index) => (
-          <div className={"card-row"} key={index}>
+        <div className="card-list">
+          {filteredCards.map((card, index) => (
             <Card
+              key={index}
               organization={card.organization}
               availableFood={card.availableFood}
               tags={card.tags}
+              address={card.address}
+              pax={card.pax}
             />
-          </div>
-        ))
+          ))}
+        </div>
       ) : (
         <p>No items match the selected tags.</p>
       )}

@@ -7,6 +7,10 @@ interface LeftPanelProps {
   onTagClick: (tag: string) => void;
   onProfileClick: () => void;
   onLogOutClick: () => void;
+  minPax: number;
+  maxPax: number;
+  onMinPaxChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onMaxPaxChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const LeftPanel: React.FC<LeftPanelProps> = ({
@@ -15,6 +19,10 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
   onTagClick,
   onProfileClick,
   onLogOutClick,
+  minPax,
+  maxPax,
+  onMinPaxChange,
+  onMaxPaxChange,
 }) => {
   return (
     <div className={"leftPanel"}>
@@ -46,6 +54,28 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
           </div>
         ))}
       </div>
+
+      <div className="input-container">
+        <label>
+          Min Pax:
+          <input
+            type="number"
+            value={minPax}
+            onChange={onMinPaxChange}
+            min="0"
+          />
+        </label>
+        <label>
+          Max Pax:
+          <input
+            type="number"
+            value={maxPax}
+            onChange={onMaxPaxChange}
+            min="0"
+          />
+        </label>
+      </div>
+
       <div className="button-group">
         <button className="transparent-button" onClick={onProfileClick}>
           <FaUser className="icon" /> My Profile
