@@ -3,15 +3,16 @@
     width: 250px;  /* Fixed square size */
     height: 180px;
     background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
     text-align: left;
     display: flex;
     /*border: 2px solid black;*/
     flex-direction: column;
     justify-content: left;
     margin: 10px; /* Space around the card */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition */
 }
 
 /* Card title */
@@ -25,4 +26,28 @@
 .card-description {
     font-size: 16px;
     color: #666;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+    border: 2px solid #0077cc; /* Blue border to highlight on hover */
+}
+
+.click-to-contact {
+    color: #0077cc;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    color: #333; /* Consistent color */
+}
+
+p {
+    font-size: 14px; /* Adjust size to match Figma */
+    margin-bottom: 10px;
 }
