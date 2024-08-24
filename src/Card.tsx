@@ -1,19 +1,21 @@
-import './Card.css'
+import "./Card.css";
+
 interface CardProps {
-    // description: string;
+  organization: string;
+  availableFood: string;
+  tags: string[];
 }
 
-const Card: React.FC<CardProps> = () => {
-    return (
-        <div className="card">
-
-            <p className="card-description">
-                Organization:<br/>
-                Avaiable Food: <br/>
-                tags: <br/>
-            </p>
-        </div>
-    );
+const Card: React.FC<CardProps> = ({ organization, availableFood, tags }) => {
+  return (
+    <div className="card">
+      <p className="card-description">
+        Organization: {organization} <br />
+        Available Food: {availableFood} <br />
+        Tags: {tags.join(", ")} <br />
+      </p>
+    </div>
+  );
 };
 
 export default Card;
