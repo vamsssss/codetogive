@@ -7,6 +7,8 @@ const TryTelegram = () => {
   const TELEGRAM_API_TOKEN = "7526920561:AAHukgpeBHmBYJVFTCdd-wvtwvc2mKG-his";
   const CHAT_ID = "-1002241058899";
 
+  //endpoint to view all messages in broadcast channel: https://api.telegram.org/bot7526920561:AAHukgpeBHmBYJVFTCdd-wvtwvc2mKG-his/getUpdates
+
   const sendMessageToTelegram = async (message) => {
     const url = `https://api.telegram.org/bot${TELEGRAM_API_TOKEN}/sendMessage`;
 
