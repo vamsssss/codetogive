@@ -9,7 +9,11 @@ export class UserController {
       const user = await this.userService.createUser(req.body);
       res.status(201).send(user);
     } catch (err) {
-      res.status(500).send((err as Error).message);
+        if (!req.body.email) {
+            res.status(400).send('Email is required');
+        } else {
+            res.status(500).send((err as Error).message);
+        }
     }
   };
 
