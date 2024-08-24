@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import ProfilePage from "./ProfilePage";
+import TryMaps from "./TryMaps";
 import LeftPanel from "./LeftPanel";
 import CardList from "./CardList";
 
@@ -20,6 +21,10 @@ function App() {
   const handleProfileClick = () => {
     navigate("/profile");
   };
+
+  const handleLogOutClick = () => {
+    navigate("/"); //replace with login page path
+  }
 
   const tags = ["Halal", "Vegetarian", "Vegan", "Perishable", "Others"];
 
@@ -64,12 +69,14 @@ function App() {
               selectedTags={selectedTags}
               onTagClick={handleTagClick}
               onProfileClick={handleProfileClick}
+              onLogOutClick={handleLogOutClick}
             />
             <CardList filteredCards={filteredCards} />
           </div>
         }
       />
       <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/trymaps" element={<TryMaps />} />
     </Routes>
   );
 }

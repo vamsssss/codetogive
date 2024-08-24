@@ -6,6 +6,7 @@ interface LeftPanelProps {
   selectedTags: string[];
   onTagClick: (tag: string) => void;
   onProfileClick: () => void;
+  onLogOutClick: () => void;
 }
 
 const LeftPanel: React.FC<LeftPanelProps> = ({
@@ -13,6 +14,7 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
   selectedTags,
   onTagClick,
   onProfileClick,
+  onLogOutClick,
 }) => {
   return (
     <div className={"leftPanel"}>
@@ -48,7 +50,7 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
         <button className="transparent-button" onClick={onProfileClick}>
           <FaUser className="icon" /> My Profile
         </button>
-        <button className="transparent-button">
+        <button className="transparent-button" onClick={onLogOutClick}>
           <FaSignOutAlt className="icon" /> Log Out
         </button>
       </div>
