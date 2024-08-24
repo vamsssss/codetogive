@@ -126,12 +126,10 @@
 .button-group {
   position: absolute;
   bottom: 20px;
-  /* Position at the bottom */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  /* Space between buttons */
 }
 
 .transparent-button {

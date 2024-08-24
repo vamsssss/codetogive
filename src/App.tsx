@@ -56,7 +56,7 @@ function App() {
   return (
     <Routes>
       <Route
-        path="/codetogive"
+        path="/"
         element={
           <div className={"container"}>
             <LeftPanel
