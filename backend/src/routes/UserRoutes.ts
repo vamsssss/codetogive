@@ -11,5 +11,6 @@ const userController = new UserController(UserService);
 router.post("/users", userController.createUser); // Route to create a new user
 router.put("/users/:id", userController.updateUser); // Route to update a user by ID
 router.delete("/users/:id", userController.deleteUser); // Route to delete a user by ID
+router.post("/users/login", userController.login);
 
 export default router;
