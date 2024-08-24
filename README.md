@@ -3,8 +3,7 @@
 ## Prerequisites
 
 - **Node.js** (v16 or higher)
-- **npm** (v8 or higher) or **Yarn** (v1.22 or higher)
-- **SQLite** (for development and testing)
+- **npm** (v8 or higher)
 
 ## Installation
 
