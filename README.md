@@ -12,7 +12,7 @@
    ```bash
    npm install
 2. **Ensure tests are passing**
-   Should see 2 of 2 passed
+   : Should see 2 of 2 passed
    ```bash
    npm test
 3. **Run the server**
