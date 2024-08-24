@@ -3,6 +3,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import ProfilePage from "./ProfilePage";
 import TryMaps from "./TryMaps";
+import TryTelegram from "./TryTelegram";
 import LeftPanel from "./LeftPanel";
 import CardList from "./CardList";
 
@@ -77,6 +78,7 @@ function App() {
       />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/trymaps" element={<TryMaps />} />
+      <Route path="/trytelegram" element={<TryTelegram />} />
     </Routes>
   );
 }
