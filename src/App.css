@@ -11,11 +11,9 @@
   will-change: filter;
   transition: filter 300ms;
 }
-
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
-
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -24,7 +22,6 @@
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
@@ -38,116 +35,8 @@
 
 .card {
   padding: 2em;
-  margin: 10px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.container {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  background-color: lightblue;
-  border-radius: 10px;
-}
-
-.leftPanel {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  position: relative;
-}
-
-.profile-photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-top: 70px;
-  margin-bottom: 50px;
-}
-
-.filter-text {
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  text-align: center;
-  color: black;
-}
-
-.tags-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.tag {
-  display: inline-block;
-  padding: 5px 10px;
-  margin: 5px;
-  color: black;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  cursor: pointer;
-  position: relative;
-}
-
-.tag.selected {
-  background-color: #f0f0f0;
-}
-
-.remove-tag {
-  margin-left: 10px;
-  color: red;
-  cursor: pointer;
-}
-
-.right {
-  flex: 3;
-  background-color: white;
-  border-radius: 40px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  padding: 20px;
-}
-
-.card-row {
-  flex-direction: row;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.button-group {
-  position: absolute;
-  bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.transparent-button {
-  display: flex;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  color: black;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.transparent-button .icon {
-  margin-right: 10px;
-}
-
-.transparent-button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+.read-the-docs {
+  color: #888;
 }
