@@ -9,9 +9,10 @@
     width: 100vw;
 }
 
-h2 {
-    margin-bottom: 20px; /* Space between the heading and the form */
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Font family */
+.bc-h2 {
+    margin-bottom: 20px;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    color: black;
 }
 
 .form {

@@ -29,7 +29,7 @@ const Telegram = () => {
 
   return (
     <div className="tele-container">
-      <h2>Create a Broadcast Message</h2>
+      <h2 className="bc-h2">Create a Broadcast Message</h2>
       <form onSubmit={handleSubmit} className="form">
         <textarea
           value={message}

@@ -11,6 +11,7 @@ import MapMarkers from "./MapMarkers";
 import LoginPage from "./pages/LoginPage.tsx"; // Import the LoginPage component
 import RegistrationPage from "./pages/RegistrationPage.tsx"; // Import the RegistrationPage component
 import DonorInputPage from "./pages/DonorInputPage.tsx"; // Import the DonorInputPage component
+import Messages from "./Messages";
 
 function App() {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -176,6 +177,7 @@ function App() {
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/trymaps" element={<TryMaps />} />
       <Route path="/broadcast" element={<Telegram />} />
+      <Route path="/messages" element={<Messages />} />
     </Routes>
   );
 }
