@@ -1,20 +1,28 @@
-.registration-container {
+.fullscreen-container {
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: #FEF3ED;
+  height: 100vh;
+  width: 100vw;
+  background-color: #242424;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .registration-box {
+  height: 100vh;
   width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
   background-color: #FEF3ED;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  color: #213547;
+  box-sizing: border-box;
 }
 
 .register-form {
@@ -24,35 +32,39 @@
 
 h2 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-top: 6rem;
+  font-size: 2em;
+  color: #213547;
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   width: 100%;
 }
 
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
+  color: #213547;
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   background-color: #fff;
   font-size: 1rem;
+  color: #000;
   appearance: none;
 }
 
 .form-group select {
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 0.5rem center;
+  background-position: right 0.75rem center;
   background-size: 0.65rem auto;
   padding-right: 1.5rem;
   cursor: pointer;
@@ -75,43 +87,36 @@ h2 {
   background-color: #e68900;
 }
 
-.redirect-link {
+.login-prompt {
   text-align: center;
   margin-top: 1rem;
   font-size: 0.9rem;
   color: #213547;
 }
 
-.redirect-link a {
+.login-prompt a {
   color: #ff7008;
   text-decoration: none;
   font-weight: 500;
 }
 
-.redirect-link a:hover {
+.login-prompt a:hover {
   text-decoration: underline;
-}
-
-.login-prompt {
-  text-align: center;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: black;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #FEF3ED;
+    background-color: #ffffff;
   }
 
   .registration-box {
-    background-color: #FEF3ED;
+    background-color: #ffffff;
   }
 
   .form-group input,
   .form-group select {
-    background-color: #FEF3ED;
+    background-color: #ffffff;
     color: #000;
   }
 
@@ -122,12 +127,24 @@ h2 {
   .register-button:hover {
     background-color: #e68900;
   }
+}
 
-  .login-prompt {
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: black;
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .registration-box {
+    padding: 1.5rem;
   }
 
+  .register-button {
+    padding: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.875rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 0.875rem;
+  }
 }

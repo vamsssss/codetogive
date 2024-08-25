@@ -9,10 +9,21 @@ const LoginPage: React.FC = () => {
 
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Implement your login logic here
+    // Implement your login logic here, e.g., call an API and get user info
     console.log("Logging in with", email, password);
-    // Assume login is successful and navigate to the home page
-    navigate("/home");
+
+    // Simulate a login response that includes the userType
+    const loginResponse = {
+      userType: email.includes("donor") ? "foodDonor" : "beneficiary", 
+      // Example logic; this should be replaced with actual login response handling
+    };
+
+    // Redirect based on userType
+    if (loginResponse.userType === "foodDonor") {
+      navigate("/donor-input");
+    } else if (loginResponse.userType === "beneficiary") {
+      navigate("/beneficiaries"); // Assuming /beneficiaries is your main page for beneficiaries
+    }
   };
 
   const handleRedirectToRegister = () => {
@@ -23,7 +34,7 @@ const LoginPage: React.FC = () => {
     <div className="fullscreen-container">
       <div className="login-box">
         <h2>Login</h2>
-        <form class="login-form" onSubmit={handleLogin}>
+        <form className="login-form" onSubmit={handleLogin}>
           <div className="form-group">
             <label>Email</label>
             <input

@@ -8,10 +8,10 @@ const RegistrationPage: React.FC = () => {
     email: "",
     password: "",
     userType: "", // New field for user type
-    uenNumber: "", // New field for UEN number
-    peopleServed: "", // New field for number of people served (for beneficiaries)
-    contactNumber: "", // New field for contact number
-    address: "", // New field for address
+    uenNumber: "",
+    peopleServed: "",
+    contactNumber: "",
+    address: "",
   });
 
   const navigate = useNavigate();
@@ -25,8 +25,12 @@ const RegistrationPage: React.FC = () => {
     e.preventDefault();
     console.log("Registering with", form);
 
-    // Navigate to /full-profile and pass the form data as state
-    navigate("/full-profile", { state: form });
+    // Store userType and email in localStorage
+    localStorage.setItem("userType", form.userType);
+    localStorage.setItem("email", form.email);
+
+    // Navigate to the login page after successful registration
+    navigate("/login");
   };
 
   return (
@@ -35,8 +39,9 @@ const RegistrationPage: React.FC = () => {
         <h2>Register</h2>
         <form class="register-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Name</label>
+            <label htmlFor="name">Name</label>
             <input
+              id="name"
               type="text"
               name="name"
               value={form.name}
@@ -45,8 +50,9 @@ const RegistrationPage: React.FC = () => {
             />
           </div>
           <div className="form-group">
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input
+              id="email"
               type="email"
               name="email"
               value={form.email}
@@ -55,8 +61,9 @@ const RegistrationPage: React.FC = () => {
             />
           </div>
           <div className="form-group">
-            <label>Password</label>
+            <label htmlFor="password">Password</label>
             <input
+              id="password"
               type="password"
               name="password"
               value={form.password}
@@ -65,10 +72,11 @@ const RegistrationPage: React.FC = () => {
             />
           </div>
           <div className="form-group">
-            <label>Beneficiary or Looking to Donate Food?</label>
+            <label htmlFor="userType">Beneficiary or Looking to Donate Food?</label>
             <select
+              id="userType"
               name="userType"
-              value={form.userType}
+              value={form.userType} // Ensure the select value is bound to form.userType
               onChange={handleChange}
               required
             >
@@ -80,8 +88,9 @@ const RegistrationPage: React.FC = () => {
             </select>
           </div>
           <div className="form-group">
-            <label>Company UEN Number</label>
+            <label htmlFor="uenNumber">Company UEN Number</label>
             <input
+              id="uenNumber"
               type="text"
               name="uenNumber"
               value={form.uenNumber}
@@ -91,8 +100,9 @@ const RegistrationPage: React.FC = () => {
           </div>
           {form.userType === "beneficiary" && (
             <div className="form-group">
-              <label>Size of Organisation</label>
+              <label htmlFor="peopleServed">Size of Organisation</label>
               <input
+                id="peopleServed"
                 type="number"
                 name="peopleServed"
                 value={form.peopleServed}
@@ -102,8 +112,9 @@ const RegistrationPage: React.FC = () => {
             </div>
           )}
           <div className="form-group">
-            <label>Contact Number</label>
+            <label htmlFor="contactNumber">Contact Number</label>
             <input
+              id="contactNumber"
               type="text"
               name="contactNumber"
               value={form.contactNumber}
@@ -112,8 +123,9 @@ const RegistrationPage: React.FC = () => {
             />
           </div>
           <div className="form-group">
-            <label>Address</label>
+            <label htmlFor="address">Address</label>
             <input
+              id="address"
               type="text"
               name="address"
               value={form.address}
