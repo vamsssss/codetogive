@@ -77,3 +77,9 @@ model Location {
   lng          Float    
   users        User[] 
 }
+
+model Broadcast {
+  id        Int      @id @default(autoincrement())
+  message   String
+  createdAt DateTime @default(now())
+}
