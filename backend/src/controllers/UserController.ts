@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import IUserService from "../services/IUserService";
 
-export class UserController {
+class UserController {
   constructor(private userService: IUserService) {}
 
   createUser = async (req: Request, res: Response): Promise<void> => {
@@ -77,3 +77,5 @@ export class UserController {
     }
   };
 }
+
+export default UserController;
