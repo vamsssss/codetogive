@@ -6,12 +6,13 @@ import TryMaps from "./TryMaps";
 import Telegram from "./Telegram";
 import LeftPanel from "./LeftPanel";
 import CardList from "./CardList";
-import LandingPage from "./pages/LandingPage"
+import LandingPage from "./pages/LandingPage";
 import MapMarkers from "./MapMarkers";
 import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import DonorInputPage from "./pages/DonorInputPage";
 import Messages from "./Messages";
+import Match from "./Match";
 
 function App() {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -19,7 +20,6 @@ function App() {
   const [maxPax, setMaxPax] = useState<number>(50);
   const [hasInitializedPax, setHasInitializedPax] = useState<boolean>(false);
   const navigate = useNavigate();
-
   const handleTagClick = (tag: string) => {
     setSelectedTags((prevTags) =>
       prevTags.includes(tag)
@@ -27,25 +27,19 @@ function App() {
         : [...prevTags, tag]
     );
   };
-
   const handleProfileClick = () => {
     navigate("/profile");
   };
-
   const handleLogOutClick = () => {
-    navigate("/login"); // Redirect to the login page
+    navigate("/login");
   };
-
   const handleMinPaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMinPax(Number(e.target.value));
   };
-
   const handleMaxPaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMaxPax(Number(e.target.value));
   };
-
   const tags = ["Halal", "Vegetarian", "Vegan", "Perishable", "Others"];
-
   const [cardData, setCardData] = useState<Card[]>([
     {
       organization: "Org 1",
@@ -91,16 +85,24 @@ function App() {
       pax: 19,
     },
   ]);
-
+  /*{
+    useEffect(() => { if (!hasInitializedPax && cardData.length > 0) { const paxValues = cardData.map((card) => card.pax); setMinPax(Math.min(...paxValues)); setMaxPax(Math.max(...paxValues)); setHasInitializedPax(true); } }, [cardData, hasInitializedPax]);
+  }*/
   useEffect(() => {
-    if (!hasInitializedPax && cardData.length > 0) {
-      const paxValues = cardData.map((card) => card.pax);
-      setMinPax(Math.min(...paxValues));
-      setMaxPax(Math.max(...paxValues));
-      setHasInitializedPax(true);
-    }
-  }, [cardData, hasInitializedPax]);
-
+    const fetchListings = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/api/listings");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setCardData(data);
+      } catch (error) {
+        console.error("Error fetching listings:", error);
+      }
+    };
+    fetchListings();
+  }, []);
   const filteredCards = cardData.filter(
     (card) =>
       (selectedTags.length === 0 ||
@@ -108,14 +110,15 @@ function App() {
       card.pax >= minPax &&
       card.pax <= maxPax
   );
-
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />}/>
+      {" "}
+      <Route path="/" element={<LandingPage />} />{" "}
       <Route
         path="/beneficiaries"
         element={
           <div className={"main-container"}>
+            {" "}
             <LeftPanel
               tags={tags}
               selectedTags={selectedTags}
@@ -126,60 +129,75 @@ function App() {
               maxPax={maxPax}
               onMinPaxChange={handleMinPaxChange}
               onMaxPaxChange={handleMaxPaxChange}
-            />
+            />{" "}
             <div className="right">
+              {" "}
               <div className="card-list-container">
-                <CardList filteredCards={filteredCards} />
-              </div>
+                {" "}
+                <CardList filteredCards={filteredCards} />{" "}
+              </div>{" "}
               <div className="card-count-wrapper">
+                {" "}
                 <div className="card-count-container">
-                  <span>{filteredCards.length} item(s)</span>
-                </div>
-              </div>
+                  {" "}
+                  <span>{filteredCards.length} item(s)</span>{" "}
+                </div>{" "}
+              </div>{" "}
               <div className="map-markers-container">
-                <MapMarkers cardData={filteredCards} />
-              </div>
-            </div>
+                {" "}
+                <MapMarkers cardData={filteredCards} />{" "}
+              </div>{" "}
+            </div>{" "}
           </div>
         }
-      />
-      <Route path="/beneficiaries" element={
-        <div className={"container"}>
-          <LeftPanel
-            tags={tags}
-            selectedTags={selectedTags}
-            onTagClick={handleTagClick}
-            onProfileClick={handleProfileClick}
-            onLogOutClick={handleLogOutClick}
-            minPax={minPax}
-            maxPax={maxPax}
-            onMinPaxChange={handleMinPaxChange}
-            onMaxPaxChange={handleMaxPaxChange}
-          />
-          <div className="right">
-            <div className="card-list-container">
-              <CardList filteredCards={filteredCards} />
-            </div>
-            <div className="card-count-wrapper">
-              <div className="card-count-container">
-                <span>{filteredCards.length} item(s)</span>
-              </div>
-            </div>
-            <div className="map-markers-container">
-              <MapMarkers cardData={filteredCards} />
-            </div>
+      />{" "}
+      <Route
+        path="/beneficiaries"
+        element={
+          <div className={"container"}>
+            {" "}
+            <LeftPanel
+              tags={tags}
+              selectedTags={selectedTags}
+              onTagClick={handleTagClick}
+              onProfileClick={handleProfileClick}
+              onLogOutClick={handleLogOutClick}
+              minPax={minPax}
+              maxPax={maxPax}
+              onMinPaxChange={handleMinPaxChange}
+              onMaxPaxChange={handleMaxPaxChange}
+            />{" "}
+            <div className="right">
+              {" "}
+              <div className="card-list-container">
+                {" "}
+                <CardList filteredCards={filteredCards} />{" "}
+              </div>{" "}
+              <div className="card-count-wrapper">
+                {" "}
+                <div className="card-count-container">
+                  {" "}
+                  <span>{filteredCards.length} item(s)</span>
+                </div>{" "}
+              </div>{" "}
+              <div className="map-markers-container">
+                {" "}
+                <MapMarkers cardData={filteredCards} />{" "}
+              </div>{" "}
+            </div>{" "}
           </div>
-        </div>
-      } />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegistrationPage />} />
-      <Route path="/donate" element={<DonorInputPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/trymaps" element={<TryMaps />} />
-      <Route path="/broadcast" element={<Telegram />} />
-      <Route path="/messages" element={<Messages />} />
+        }
+      />{" "}
+      <Route path="/login" element={<LoginPage />} />{" "}
+      <Route path="/register" element={<RegistrationPage />} />{" "}
+      <Route path="/donate" element={<DonorInputPage />} />{" "}
+      <Route path="/profile" element={<ProfilePage />} />{" "}
+      <Route path="/trymaps" element={<TryMaps />} />{" "}
+      <Route path="/broadcast" element={<Telegram />} />{" "}
+      <Route path="/messages" element={<Messages />} />{" "}
+      <Route path="/match" element={<Match />} />{" "}
+
     </Routes>
   );
 }
-
 export default App;

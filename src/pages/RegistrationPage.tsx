@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import { useNavigate, Link } from "react-router-dom";
+import { createUser } from "../http";
 import "./RegistrationPage.css";
 
 const libraries = ["places"];
@@ -17,11 +18,11 @@ const RegistrationPage: React.FC = () => {
     address: "",
   });
 
-  const [autocomplete, setAutocomplete] = useState<google.maps.places.Autocomplete | null>(null);
+  const [autocomplete, setAutocomplete] =
+    useState<google.maps.places.Autocomplete | null>(null);
   const addressInputRef = useRef<HTMLInputElement>(null);
 
   const navigate = useNavigate();
-
   const YOUR_API_KEY = "AIzaSyBAFDKKOMyejno9kqGkgjhOVwKG3B49n4U";
 
   useEffect(() => {
@@ -33,19 +34,54 @@ const RegistrationPage: React.FC = () => {
     }
   }, [autocomplete, form]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const getLocationFromAddress = async (address: string) => {
+    try {
+      const response = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
+          address
+        )}&key=${YOUR_API_KEY}`
+      );
+      const data = await response.json();
+      if (data.results[0]) {
+        const { lat, lng } = data.results[0].geometry.location;
+        return { lat, lng };
+      } else {
+        throw new Error("Address not found");
+      }
+    } catch (error) {
+      console.error("Error fetching location:", error);
+      throw error;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Registering with", form);
 
-    localStorage.setItem("userType", form.userType);
-    localStorage.setItem("email", form.email);
-
-    navigate("/login");
+    try {
+      const latlong = await getLocationFromAddress(form.address);
+      console.log("latlong converted from form.address", latlong);
+      await createUser({
+        email: form.email,
+        //name: form.name,
+        role: form.userType,
+        size: form.peopleServed ? Number(form.peopleServed) : undefined,
+        password: form.password,
+        tags: [],
+        location: latlong,
+      });
+      navigate("/login");
+    } catch (error) {
+      console.error("There was an error registering the user:", error);
+      // Handle error appropriately
+    }
   };
 
   const handleUseMyLocation = () => {
@@ -53,9 +89,11 @@ const RegistrationPage: React.FC = () => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBAFDKKOMyejno9kqGkgjhOVwKG3B49n4U`)
-            .then(response => response.json())
-            .then(data => {
+          fetch(
+            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${YOUR_API_KEY}`
+          )
+            .then((response) => response.json())
+            .then((data) => {
               if (data.results[0]) {
                 const address = data.results[0].formatted_address;
                 setForm({ ...form, address });
@@ -64,7 +102,7 @@ const RegistrationPage: React.FC = () => {
                 }
               }
             })
-            .catch(error => console.error("Error fetching address:", error));
+            .catch((error) => console.error("Error fetching address:", error));
         },
         (error) => console.error("Error getting location:", error)
       );
@@ -72,9 +110,8 @@ const RegistrationPage: React.FC = () => {
       alert("Geolocation is not supported by this browser.");
     }
   };
-
   return (
-    <LoadScript googleMapsApiKey="AIzaSyBAFDKKOMyejno9kqGkgjhOVwKG3B49n4U" libraries={libraries}>
+    <LoadScript googleMapsApiKey={YOUR_API_KEY} libraries={libraries}>
       <div className="register-fullscreen-container">
         <div className="registration-box">
           <h2 className="reg-h2">Register</h2>
@@ -113,7 +150,9 @@ const RegistrationPage: React.FC = () => {
               />
             </div>
             <div className="register-form-group">
-              <label htmlFor="userType">Beneficiary or Looking to Donate Food?</label>
+              <label htmlFor="userType">
+                Beneficiary or Looking to Donate Food?
+              </label>
               <select
                 id="userType"
                 name="userType"
@@ -121,8 +160,12 @@ const RegistrationPage: React.FC = () => {
                 onChange={handleChange}
                 required
               >
-                <option value="" disabled>Select type of Organisation</option>
-                <option value="foodDonor">Food Donor/Restaurant Establishment</option>
+                <option value="" disabled>
+                  Select type of Organisation
+                </option>
+                <option value="donor">
+                  Food Donor/Restaurant Establishment
+                </option>
                 <option value="beneficiary">Beneficiary</option>
               </select>
             </div>
@@ -178,17 +221,18 @@ const RegistrationPage: React.FC = () => {
                   placeholder="Enter address"
                 />
               </Autocomplete>
-              <span
-                className="use-my-location"
-                onClick={handleUseMyLocation}
-              >
+              <span className="use-my-location" onClick={handleUseMyLocation}>
                 Use My Location
               </span>
             </div>
-            <button type="submit" className="register-button">Register</button>
+            <button type="submit" className="register-button">
+              Register
+            </button>
           </form>
           <div className="login-prompt">
-            <p>Already have an account? <Link to="/login">Login here</Link></p>
+            <p>
+              Already have an account? <Link to="/login">Login here</Link>
+            </p>
           </div>
         </div>
       </div>

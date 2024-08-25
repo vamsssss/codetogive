@@ -13,7 +13,7 @@ const LoginPage: React.FC = () => {
     console.log("Logging in with", email, password, "as", userType);
 
     // Redirect based on selected userType
-    if (userType === "foodDonor") {
+    if (userType === "donor") {
       navigate("/donate");
     } else if (userType === "beneficiary") {
       navigate("/beneficiaries");
@@ -66,7 +66,7 @@ const LoginPage: React.FC = () => {
               <option value="" disabled>
                 Select your role
               </option>
-              <option value="foodDonor">Food Donor/Restaurant Establishment</option>
+              <option value="donor">Food Donor/Restaurant Establishment</option>
               <option value="beneficiary">Beneficiary</option>
             </select>
           </div>

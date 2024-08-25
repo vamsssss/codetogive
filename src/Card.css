@@ -10,15 +10,41 @@
     flex-direction: column;
     justify-content: left;
     margin: 10px;
-}
+    position: relative; /* Needed for the hover text positioning */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+  }
+  
+  .card-hovered {
+    background-color: #5f5f5f;
+    opacity: 80%;
+  }
+  
+  .card-hovered .card-description {
+    color: #5f5f5f; /* Text color on hover */
+    opacity: 80%;
 
-.card-title {
+  }
+
+  .card-title {
     font-size: 24px;
     margin-bottom: 15px;
-    color: #333;
-}
-
-.card-description {
+    color: black;
+  }
+  
+  .card-description {
     font-size: 16px;
     color: #666;
-}
+  }
+  
+  .card-hover-text {
+    font-size: 1.1rem;
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); 
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  

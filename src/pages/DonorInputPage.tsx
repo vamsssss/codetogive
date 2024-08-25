@@ -23,6 +23,7 @@ const DonorInputPage: React.FC = () => {
   });
 
   const [autocomplete, setAutocomplete] = useState<google.maps.places.Autocomplete | null>(null);
+  const [showPopup, setShowPopup] = useState<boolean>(false); // New state for popup
   const addressInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
@@ -49,14 +50,32 @@ const DonorInputPage: React.FC = () => {
     const { value } = e.target;
     setForm((prevForm) => ({
       ...prevForm,
-      tags: value.split(",").map((tag) => tag.trim()),
+      tags: value.split(",").map((tag) => tag.trim().charAt(0).toUpperCase() + tag.trim().slice(1)),
     }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log("Submitting donor data:", form);
-    // Add logic to submit form data to your backend or state management
+    
+    try {
+      const response = await fetch("http://localhost:8080/api/listings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+  
+      if (response.ok) {
+        console.log("Listing submitted successfully!");
+        setShowPopup(true);
+        // Handle success (e.g., redirect or show a success message)
+      } else {
+        console.error("Failed to submit the listing.");
+      }
+    } catch (error) {
+      console.error("Error submitting the listing:", error);
+    }
   };
 
   const handleLogout = (): void => {
@@ -117,7 +136,7 @@ const DonorInputPage: React.FC = () => {
               />
             </div>
             <div className="donate-form-group">
-              <label>Tags (comma separated)</label>
+              <label>Tags: "Halal", "Vegetarian", "Vegan", "Perishable", "Others"</label>
               <input
                 type="text"
                 name="tags"
@@ -168,6 +187,14 @@ const DonorInputPage: React.FC = () => {
               </button>
             </div>
           </form>
+          {showPopup && (
+            <div className="popup">
+              <div className="popup-content">
+                <h3>Thank you for donating!</h3>
+                <button onClick={() => setShowPopup(false)} className="popup-close-button">Close</button>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="logos-section">
