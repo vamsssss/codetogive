@@ -1,7 +1,6 @@
 import IBroadcastService from '../../services/IBroadcastService';
 import { Broadcast, prisma } from '../../models/BroadcastModel';
 
-
 class TelegramBroadcastServiceImpl implements IBroadcastService {
 
   async sendMessage(message: string): Promise<void> {
