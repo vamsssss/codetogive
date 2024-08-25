@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import './Telegram.css';
 
 const TryTelegram = () => {
   const [message, setMessage] = useState("");
 
   const TELEGRAM_API_TOKEN = "7526920561:AAHukgpeBHmBYJVFTCdd-wvtwvc2mKG-his";
   const CHAT_ID = "-1002241058899";
-
-  //endpoint to view all messages in broadcast channel: https://api.telegram.org/bot7526920561:AAHukgpeBHmBYJVFTCdd-wvtwvc2mKG-his/getUpdates
 
   const sendMessageToTelegram = async (message) => {
     const url = `https://api.telegram.org/bot${TELEGRAM_API_TOKEN}/sendMessage`;
@@ -29,15 +28,18 @@ const TryTelegram = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Enter your message"
-      />
-      <button type="submit">Send to Telegram</button>
-    </form>
+    <div className="container">
+      <form onSubmit={handleSubmit} className="form">
+        <input
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Enter your message"
+          className="input-field"
+        />
+        <button type="submit" className="submit-button">Broadcase</button>
+      </form>
+    </div>
   );
 };
 
