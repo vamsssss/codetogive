@@ -14,31 +14,53 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String
-  name      String?
-  role      String   // 'donor' or 'beneficiary'
+  id           Int           @id @default(autoincrement())
+  email        String        @unique
+  name         String
+  password     String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  donor        Donor?        @relation("Donor")
+  beneficiary  Beneficiary?  @relation("Beneficiary")
   tags      Tag[]    @relation("UserTags")
-  size      Int?     // Size attribute, nullable if not applicable to all users, used for tie breakers
+}
+model Donor {
+  userId     Int      @id
+  donations  Listing[]
+  user       User     @relation("Donor", fields: [userId], references: [id])
   donorMatches       Match[]  @relation("DonorMatches")
-  beneficiaryMatches Match[]  @relation("BeneficiaryMatches")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  
 }
-
-model Tag {
-  id   Int    @id @default(autoincrement())
-  name String
-  timeframe String? // for modelling perishable items
-  users     User[]   @relation("UserTags")
+model Beneficiary {
+  userId     Int      @id
+  size       Int
+  user       User     @relation("Beneficiary", fields: [userId], references: [id])
+  beneficaryMatches       Match[]  @relation("BeneficiaryMatches")
+  listings  Listing[] @relation("ListingBeneficiaries")
 }
-
+model Listing {
+  id             Int          @id @default(autoincrement())
+  title          String
+  description    String
+  quantity       Int
+  donorId        Int
+  donor          Donor        @relation(fields: [donorId], references: [userId])
+  tags           Tag[]        @relation("ListingTags")
+  beneficiaries  Beneficiary[] @relation("ListingBeneficiaries")
+  createdAt      DateTime     @default(now())
+}
 model Match {
-  id           Int   @id @default(autoincrement())
-  donorId      Int
-  beneficiaryId Int
-  score        Float
-  donor          User   @relation("DonorMatches", fields: [donorId], references: [id])
-  beneficiary    User   @relation("BeneficiaryMatches", fields: [beneficiaryId], references: [id])
+  id              Int         @id @default(autoincrement())
+  donorId         Int
+  beneficiaryId   Int
+  score           Float
+  donor           Donor        @relation("DonorMatches", fields: [donorId], references: [userId])
+  beneficiary     Beneficiary  @relation("BeneficiaryMatches", fields: [beneficiaryId], references: [userId])
+}
+model Tag {
+  id           Int        @id @default(autoincrement())
+  name         String
+  timeframe    String?    // For modeling perishable items
+  listings     Listing[]  @relation("ListingTags")
+  users        User[]     @relation("UserTags")
 }
