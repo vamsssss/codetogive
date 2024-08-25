@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
-import ProfilePage from "./ProfilePage";
+import ProfilePage from "./pages/ProfilePage.tsx";
 import TryMaps from "./TryMaps";
 import Telegram from "./Telegram";
 import LeftPanel from "./LeftPanel";
 import CardList from "./CardList";
+import LandingPage from "./pages/LandingPage"
 import MapMarkers from "./MapMarkers";
-import LoginPage from "./LoginPage"; // Import the LoginPage component
-import RegistrationPage from "./RegistrationPage"; // Import the RegistrationPage component
-import DonorInputPage from "./DonorInputPage"; // Import the DonorInputPage component
+import LoginPage from "./pages/LoginPage.tsx"; // Import the LoginPage component
+import RegistrationPage from "./pages/RegistrationPage.tsx"; // Import the RegistrationPage component
+import DonorInputPage from "./pages/DonorInputPage.tsx"; // Import the DonorInputPage component
 
 function App() {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -109,8 +110,9 @@ function App() {
 
   return (
     <Routes>
+      <Route path="/" element={<LandingPage />}/>
       <Route
-        path="/"
+        path="/beneficiaries"
         element={
           <div className={"container"}>
             <LeftPanel
