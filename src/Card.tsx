@@ -16,18 +16,23 @@ const Card: React.FC<CardProps> = ({
   pax,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const handleClick = () => {};
+
+
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
-
+  const mailto = 'mailto:sindhura@gmail.com';
+  
+  const handleCardClick = () => {
+    window.location.href = mailto;
+  };
 
   return (
     <div
       className={`card ${isHovered ? "card-hovered" : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
+      onClick={handleCardClick}
     >
       <p className="card-description">
         Organization: {organization} <br />
