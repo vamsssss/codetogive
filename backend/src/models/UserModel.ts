@@ -1,14 +1,22 @@
-import { PrismaClient, Beneficiary, User, Donor, Tag, Location, Listing} from '@prisma/client';
+import {
+  PrismaClient,
+  Beneficiary,
+  User,
+  Donor,
+  Tag,
+  Location,
+  Listing,
+} from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 interface UserCreateInput {
   email: string;
-  role: 'donor' | 'beneficiary';
+  role: "donor" | "beneficiary";
   password: string;
   size: number;
   tags: number[];
-  location: { lat: number, lng: number};
+  location: { lat: number; lng: number };
 }
 
 interface ListingCreateInput {
@@ -20,4 +28,14 @@ interface ListingCreateInput {
   beneficiaries: { id: number }[];
 }
 
-export {prisma, UserCreateInput, Beneficiary, User, Donor, Tag, Location, Listing, ListingCreateInput};
+export {
+  prisma,
+  UserCreateInput,
+  Beneficiary,
+  User,
+  Donor,
+  Tag,
+  Location,
+  Listing,
+  ListingCreateInput,
+};

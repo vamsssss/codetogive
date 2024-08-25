@@ -54,7 +54,7 @@ model Listing {
   id             Int          @id @default(autoincrement())
   title          String
   description    String
-  estimatedFoodCount       Int
+  quantity       Int
   donorId        Int
   donor          Donor        @relation(fields: [donorId], references: [userId])
   tags           Tag[]        @relation("ListingTags")
