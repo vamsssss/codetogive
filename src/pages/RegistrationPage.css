@@ -1,0 +1,167 @@
+.register-fullscreen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #242424;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.registration-box {
+  height: 100vh;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #FEF3ED;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  color: #213547;
+  box-sizing: border-box;
+}
+
+.register-form {
+  width: 100%;
+  max-width: 800px;
+}
+
+.reg-h2 {
+  text-align: center;
+  margin-top: 10rem;
+  font-size: 2em;
+  color: #213547;
+}
+
+.register-form-group {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.register-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #213547;
+  text-align: left;
+}
+
+.register-form-group input,
+.register-form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #000;
+  appearance: none;
+}
+
+.register-form-group select {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 0.65rem auto;
+  padding-right: 1.5rem;
+  cursor: pointer;
+}
+
+.register-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #ff7008;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+.register-button:hover {
+  background-color: #e68900;
+}
+
+.login-prompt {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #213547;
+}
+
+.login-prompt a {
+  color: #ff7008;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  .registration-box {
+    background-color: #ffffff;
+  }
+
+  .register-form-group input,
+  .register-form-group select {
+    background-color: #ffffff;
+    color: #000;
+  }
+
+  .register-button {
+    background-color: #ff7008;
+  }
+
+  .register-button:hover {
+    background-color: #e68900;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .registration-box {
+    padding: 1.5rem;
+  }
+
+  .register-button {
+    padding: 0.5rem;
+  }
+
+  .register-form-group label {
+    font-size: 0.875rem;
+  }
+
+  .register-form-group input,
+  .register-form-group select {
+    font-size: 0.875rem;
+  }
+}
+
+.use-my-location {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.use-my-location:hover {
+  text-decoration: underline; /* Underline text on hover */
+}
+
+.register-form-group {
+  margin-bottom: 1rem;
+}

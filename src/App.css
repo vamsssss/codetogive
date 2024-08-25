@@ -37,6 +37,159 @@
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+.main-container {
+  display: flex;
+  height: 100%;
+  width: 100vw;
+  background-color: #FEF3ED;
+  border-radius: 10px;
+}
+
+.leftPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+
+.filter-text {
+  margin-bottom: 80px;
+  font-size: 1.2rem;
+  text-align: center;
+  color: black;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  color: black;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.tag.selected {
+  background-color: #f0f0f0;
+}
+
+.remove-tag {
+  margin-left: 10px;
+  color: red;
+  cursor: pointer;
+}
+
+.right {
+  flex: 3;
+  background-color: white;
+  border-radius: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.card-row {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.button-group {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.transparent-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.transparent-button .icon {
+  margin-right: 10px;
+}
+
+.transparent-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.input-container {
+  margin-top: 20px;
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.input-container input[type="number"] {
+  width: 60px;
+  margin-left: 10px;
+  background-color: white;
+  color: black;
+  border-radius: 7px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  padding: 5px;
+}
+
+.map-markers-container {
+  width: 100%;
+  height: calc(100vh - 200px);
+}
+
+.card-list-container {
+  margin-bottom: 20px;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card-count-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card-count-container {
+  font-size: 1.25rem;
+  color: black;
 }
