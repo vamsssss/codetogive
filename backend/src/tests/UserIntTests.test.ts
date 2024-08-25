@@ -6,18 +6,32 @@ import bcrypt from 'bcryptjs';
 describe('User API Integration Tests', () => {
 
   afterAll(async () => {
-    await prisma.$executeRaw`DELETE FROM "User" where email = 'test@example.com';`;
     await prisma.$disconnect(); // Close Prisma connection
   });
 
   describe('POST /api/users', () => {
-    it('should create a new user', async () => {
+    it('should create a new donor', async () => {
       const response = await request(app)
         .post('/api/users')
-        .send({ email: 'test@example.com', password: 'password', role: 'donor', tags: []});
+        .send({ email: 'dono123@example.com', password: 'password', role: 'donor', tags: [],   "location": {
+          "lat": 3.121,
+          "lng": 3.14
+        }});
 
       expect(response.status).toBe(201);
-      expect(response.body.email).toBe('test@example.com');
+      expect(response.body.email).toBe('dono123@example.com');
+    });
+
+    it('should create a new beneficiary ', async () => {
+      const response = await request(app)
+        .post('/api/users')
+        .send({ email: 'bene123@example.com', password: 'password', role: 'beneficiary', size: 30, tags: [],   "location": {
+          "lat": 3.333,
+          "lng": 3.14
+        }});
+
+      expect(response.status).toBe(201);
+      expect(response.body.email).toBe('bene123@example.com');
     });
 
     it('should handle missing email', async () => {
@@ -36,7 +50,7 @@ describe('User API Integration Tests', () => {
 
       const response = await request(app)
         .post('/api/users/login')
-        .send({ email: 'test@example.com', password: 'password' });
+        .send({ email: 'dono123@example.com', password: 'password' });
 
       expect(response.status).toBe(200);
       expect(response.body.token).toBeDefined();
@@ -54,7 +68,7 @@ describe('User API Integration Tests', () => {
     it('should return 401 for invalid password', async () => {
       const response = await request(app)
         .post('/api/users/login')
-        .send({ email: 'test@example.com', password: 'wrongpassword' });
+        .send({ email: 'dono123@example.com', password: 'wrongpassword' });
 
       expect(response.status).toBe(401);
       expect(response.text).toBe('Invalid email or password');

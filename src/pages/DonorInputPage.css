@@ -1,0 +1,111 @@
+.donor-input-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+
+.teal-section {
+  background-color: #FEF3ED;
+  width: 50%;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.teal-section h2 {
+  margin-bottom: 20px;
+  color: black;
+}
+
+/* Form group styling */
+.donate-form-group {
+  margin-bottom: 15px;
+}
+
+.donate-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+  color: black;
+}
+
+.donate-form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: white;
+  color: black;
+}
+
+.button-group-donate {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.submit-button-donate {
+  padding: 10px 20px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.submit-button-donate:hover {
+  background-color: #004d40;
+}
+
+/* Log out button styling */
+.logout-button {
+  padding: 10px 20px;
+  background-color: #e57373; /* Light red color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+.logos-section {
+  width: 50%; /* 50% of the screen width */
+  padding: 40px; /* Increased padding for better spacing */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* White background for the logos section */
+}
+
+.logos-section h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: black;
+}
+
+.logos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  margin: 10px;
+  max-width: 150px;
+  max-height: 100px;
+}
