@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "./Messages.css";
 
 interface Message {
@@ -11,19 +10,12 @@ const Messages: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
-    const fetchMessages = async () => {
-      // Simulating API call with mock data
-      const mockMessages: Message[] = [
-        {
-          text: "This is a test broadcast message.",
-          timestamp: "2024-08-25T23:30:00Z",
-        },
-        {
-          text: "Test long sample message. Test long sample message 2. Test long sample message 3. Test long sample message. Test long sample message. Test long sample message. Test long sample message. Test long sample message. Test long sample message.",
-          timestamp: "2024-08-25T16:00:00Z",
-        },
-      ];
-      setMessages(mockMessages);
+    const fetchMessages = () => {
+      const storedMessages = JSON.parse(localStorage.getItem("messages") || "[]");
+      const sortedMessages = storedMessages.sort(
+        (a: Message, b: Message) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+      );
+      setMessages(sortedMessages);
     };
 
     fetchMessages();

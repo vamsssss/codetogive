@@ -43,15 +43,16 @@
     opacity: 1; /* Ensure placeholder color is visible */
 }
 
-.submit-button {
+.submit-button-tele {
     padding: 10px 20px;
+    width: 800px;
     border: none;
-    background-color: #007bff;
+    background-color: #ff7008;
     color: white;
     cursor: pointer;
     border-radius: 4px;
 }
 
-.submit-button:hover {
-    background-color: #0056b3;
+.submit-button-tele:hover {
+    background-color: #e68900;
 }
