@@ -14,7 +14,7 @@ const LoginPage: React.FC = () => {
 
     // Redirect based on selected userType
     if (userType === "foodDonor") {
-      navigate("/donor-input");
+      navigate("/donate");
     } else if (userType === "beneficiary") {
       navigate("/beneficiaries");
     }
