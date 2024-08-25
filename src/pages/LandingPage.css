@@ -1,0 +1,73 @@
+.top-panel {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px
+}
+.top-panel .button {
+    background-color: #E0ABAB;
+    color: white;
+    margin: 8px;
+    border-radius: 30px;
+}
+.upper-container {
+    display: flex;
+    flex: 1;
+    /*border: 2px solid red;*/
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 3;
+    /*position: fixed;*/
+}
+.image-container {
+    margin-top: -50px;
+    flex-direction: row;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    z-index: 1;
+    /*position: fixed;*/
+    /*border: 2px solid black ;*/
+}
+.full-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #E9D7CE;
+    margin: 0;
+    overflow: hidden;
+}
+
+.line-1 {
+    font-size: 50px;
+    line-height: 0;
+    font-weight: 950;
+    letter-spacing: 5px;
+
+}
+.line-2 {
+    font-size: 45px;
+    line-height: 0;
+    font-style: italic;
+    font-weight: 900;
+    color: #AB6464;
+    letter-spacing: 3px;
+}
+
+.first {
+    margin-left: 0;
+}
+.second {
+    margin-top: 15%;
+}
+.third {
+    margin-top: 25%;
+}
+.forth {
+    margin-top: 15%;
+}
+.fifth {
+    right: 0;
+}
+/* Add more nth-child styles for more images */
