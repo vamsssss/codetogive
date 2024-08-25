@@ -4,11 +4,11 @@ import "./Telegram.css";
 
 const Telegram = () => {
   const [message, setMessage] = useState("");
-
+  
   const TELEGRAM_API_TOKEN = "7526920561:AAHukgpeBHmBYJVFTCdd-wvtwvc2mKG-his";
   const CHAT_ID = "-1002241058899";
 
-  const sendMessageToTelegram = async (message) => {
+  const sendMessageToTelegram = async (message: string) => {
     const url = `https://api.telegram.org/bot${TELEGRAM_API_TOKEN}/sendMessage`;
 
     try {
@@ -22,9 +22,18 @@ const Telegram = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const addMessageToPage = (message: string) => {
+    const timestamp = new Date().toISOString();
+    const storedMessages = JSON.parse(localStorage.getItem("messages") || "[]");
+    const updatedMessages = [...storedMessages, { text: message, timestamp }];
+    localStorage.setItem("messages", JSON.stringify(updatedMessages));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     sendMessageToTelegram(message);
+    addMessageToPage(message);
+    setMessage("");
   };
 
   return (
