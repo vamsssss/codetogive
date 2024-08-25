@@ -1,4 +1,4 @@
-import { PrismaClient, User } from '@prisma/client';
+import { PrismaClient, User, Tag } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -9,6 +9,7 @@ interface UserCreateInput {
     password: string;
     tags: { id: number }[];
     size?: number;
-  }
+    location: { id: number, lat: number, lng: number};
+}
 
 export {prisma, UserCreateInput, User};
