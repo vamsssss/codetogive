@@ -27,9 +27,9 @@ const LoginPage: React.FC = () => {
   return (
     <div className="fullscreen-container">
       <div className="login-box">
-        <h2>Login</h2>
-        <form onSubmit={handleLogin}>
-          <div className="form-group">
+        <h2 className="login-h2">Login</h2>
+        <form className="login-form-group" onSubmit={handleLogin}>
+          <div>
             <label>Email</label>
             <input
               type="email"
@@ -40,7 +40,7 @@ const LoginPage: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div>
             <label>Password</label>
             <input
               type="password"
@@ -51,7 +51,7 @@ const LoginPage: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div>
             <label>Login as</label>
             <select
               value={userType}
