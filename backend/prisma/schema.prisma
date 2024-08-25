@@ -30,7 +30,8 @@ model User {
 model Tag {
   id   Int    @id @default(autoincrement())
   name String
-  timeframe String? // for modelling perishable items
+  startTime String?
+  endTime String? // for modelling perishable items, 24 hour clock
   users     User[]   @relation("UserTags")
 }
 
@@ -41,4 +42,10 @@ model Match {
   score        Float
   donor          User   @relation("DonorMatches", fields: [donorId], references: [id])
   beneficiary    User   @relation("BeneficiaryMatches", fields: [beneficiaryId], references: [id])
+}
+
+model Location {
+  id           Int   @id @default(autoincrement())
+  lat          Float 
+  lng          Float    
 }
