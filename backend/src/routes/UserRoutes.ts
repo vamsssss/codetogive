@@ -1,7 +1,8 @@
 import express from "express";
+import ListingController from "../controllers/ListingController";
 import UserController from "../controllers/UserController";
-import BroadcastController from "../controllers/BroadcastController"; // Adjust the path as needed
-import UserService from "../services/impl/UserServiceImpl"; // Import the service implementation
+import BroadcastController from "../controllers/BroadcastController"; 
+import UserService from "../services/impl/UserServiceImpl"; 
 import TelegramBroadcastService from "../services/impl/TelegramBroadcastServiceImpl"; 
 
 const router = express.Router();
@@ -16,5 +17,9 @@ router.delete("/users/:id", userController.deleteUser); // Route to delete a use
 router.post("/users/login", userController.login);
 router.post("/broadcast/sendBroadcast", broadcastController.sendBroadcast);
 router.get("/broadcast/getBroadcasts", broadcastController.getBroadcasts);
+
+router.post("/listings", ListingController.createListing);
+router.delete("/listings/:id", ListingController.deleteListing);
+router.get("/listings/:id", ListingController.getListing);
 
 export default router;

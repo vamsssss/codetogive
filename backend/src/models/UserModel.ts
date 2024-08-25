@@ -11,4 +11,13 @@ interface UserCreateInput {
   location: { lat: number, lng: number};
 }
 
-export {prisma, UserCreateInput, Beneficiary, User, Donor, Tag, Location, Listing};
+interface ListingCreateInput {
+  title: string;
+  description: string;
+  quantity: number;
+  donorId: number;
+  tags: { id: number }[];
+  beneficiaries: { id: number }[];
+}
+
+export {prisma, UserCreateInput, Beneficiary, User, Donor, Tag, Location, Listing, ListingCreateInput};
