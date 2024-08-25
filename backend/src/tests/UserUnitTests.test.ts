@@ -1,5 +1,5 @@
 
-import { UserController } from '../controllers/UserController';
+import UserController from '../controllers/UserController';
 import IUserService from '../services/IUserService';
 import { Request, Response } from 'express';
 
