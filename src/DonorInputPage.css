@@ -23,9 +23,10 @@
   max-width: 800px;
 }
 
-h2 {
+.don-h2 {
   text-align: center;
-  margin-bottom: 3rem; /* Increase margin below heading */
+  margin-bottom: 3rem;
+  color: black;
 }
 
 .form-group {

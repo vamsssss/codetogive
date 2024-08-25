@@ -30,26 +30,27 @@
   max-width: 800px;
 }
 
-h2 {
+.reg-h2 {
   text-align: center;
-  margin-top: 6rem;
+  margin-top: 10rem;
   font-size: 2em;
   color: #213547;
 }
 
-.form-group {
+.register-form-group {
   margin-bottom: 1.5rem;
   width: 100%;
 }
 
-.form-group label {
+.register-form-group label {
   display: block;
   margin-bottom: 0.5rem;
   color: #213547;
+  text-align: left;
 }
 
-.form-group input,
-.form-group select {
+.register-form-group input,
+.register-form-group select {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ccc;
@@ -61,7 +62,7 @@ h2 {
   appearance: none;
 }
 
-.form-group select {
+.register-form-group select {
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
@@ -114,8 +115,8 @@ h2 {
     background-color: #ffffff;
   }
 
-  .form-group input,
-  .form-group select {
+  .register-form-group input,
+  .register-form-group select {
     background-color: #ffffff;
     color: #000;
   }
@@ -139,12 +140,28 @@ h2 {
     padding: 0.5rem;
   }
 
-  .form-group label {
+  .register-form-group label {
     font-size: 0.875rem;
   }
 
-  .form-group input,
-  .form-group select {
+  .register-form-group input,
+  .register-form-group select {
     font-size: 0.875rem;
   }
+}
+
+.use-my-location {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.use-my-location:hover {
+  text-decoration: underline; /* Underline text on hover */
+}
+
+.register-form-group {
+  margin-bottom: 1rem;
 }

@@ -33,7 +33,7 @@ const LoginPage: React.FC = () => {
   return (
     <div className="fullscreen-container">
       <div className="login-box">
-        <h2>Login</h2>
+        <h2 className="log-h2">Login</h2>
         <form className="login-form" onSubmit={handleLogin}>
           <div className="form-group">
             <label>Email</label>

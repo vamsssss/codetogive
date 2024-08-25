@@ -30,7 +30,7 @@ const DonorInputPage: React.FC = () => {
   return (
     <div className="fullscreen-container">
       <div className="input-box">
-        <h2>Donation Information</h2>
+        <h2 className="don-h2">Donation Information</h2>
         <form className="donor-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Organization Name</label>
