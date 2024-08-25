@@ -20,22 +20,6 @@ class ListingController {
     }
   }
 
-  async updateListing(req: Request, res: Response): Promise<void> {
-    try {
-      const listing = await ListingServiceImpl.updateListing(
-        Number(req.params.id),
-        req.body
-      );
-      if (listing) {
-        res.status(200).send(listing);
-      } else {
-        res.status(404).send("Listing not found");
-      }
-    } catch (err) {
-      res.status(500).send((err as Error).message);
-    }
-  }
-
   async deleteListing(req: Request, res: Response): Promise<void> {
     try {
       const listing = await ListingServiceImpl.deleteListing(

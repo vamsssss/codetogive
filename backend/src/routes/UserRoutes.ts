@@ -15,7 +15,6 @@ router.delete("/users/:id", userController.deleteUser); // Route to delete a use
 router.post("/users/login", userController.login);
 
 router.post("/listings", ListingController.createListing);
-router.put("/listings/:id", ListingController.updateListing);
 router.delete("/listings/:id", ListingController.deleteListing);
 router.get("/listings/:id", ListingController.getListing);
 
