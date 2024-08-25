@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
-import ProfilePage from "./pages/ProfilePage";
+import ProfilePage from "./pages/ProfilePage.tsx";
 import TryMaps from "./TryMaps";
 import Telegram from "./Telegram";
 import LeftPanel from "./LeftPanel";
 import CardList from "./CardList";
 import LandingPage from "./pages/LandingPage"
 import MapMarkers from "./MapMarkers";
-import LoginPage from "./pages/LoginPage";
-import RegistrationPage from "./pages/RegistrationPage";
-import DonorInputPage from "./pages/DonorInputPage";
+import LoginPage from "./pages/LoginPage.tsx"; // Import the LoginPage component
+import RegistrationPage from "./pages/RegistrationPage.tsx"; // Import the RegistrationPage component
+import DonorInputPage from "./pages/DonorInputPage.tsx"; // Import the DonorInputPage component
 import Messages from "./Messages";
 
 function App() {
