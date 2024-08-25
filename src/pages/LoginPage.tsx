@@ -5,24 +5,18 @@ import "./LoginPage.css";
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [userType, setUserType] = useState<string>(""); // State for user type selection
   const navigate = useNavigate();
 
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Implement your login logic here, e.g., call an API and get user info
-    console.log("Logging in with", email, password);
+    console.log("Logging in with", email, password, "as", userType);
 
-    // Simulate a login response that includes the userType
-    const loginResponse = {
-      userType: email.includes("donor") ? "foodDonor" : "beneficiary", 
-      // Example logic; this should be replaced with actual login response handling
-    };
-
-    // Redirect based on userType
-    if (loginResponse.userType === "foodDonor") {
+    // Redirect based on selected userType
+    if (userType === "foodDonor") {
       navigate("/donor-input");
-    } else if (loginResponse.userType === "beneficiary") {
-      navigate("/beneficiaries"); // Assuming /beneficiaries is your main page for beneficiaries
+    } else if (userType === "beneficiary") {
+      navigate("/beneficiaries");
     }
   };
 
@@ -33,8 +27,8 @@ const LoginPage: React.FC = () => {
   return (
     <div className="fullscreen-container">
       <div className="login-box">
-        <h2 className="log-h2">Login</h2>
-        <form className="login-form" onSubmit={handleLogin}>
+        <h2>Login</h2>
+        <form onSubmit={handleLogin}>
           <div className="form-group">
             <label>Email</label>
             <input
@@ -56,6 +50,22 @@ const LoginPage: React.FC = () => {
               }
               required
             />
+          </div>
+          <div className="form-group">
+            <label>Login as</label>
+            <select
+              value={userType}
+              onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                setUserType(e.target.value)
+              }
+              required
+            >
+              <option value="" disabled>
+                Select your role
+              </option>
+              <option value="foodDonor">Food Donor/Restaurant Establishment</option>
+              <option value="beneficiary">Beneficiary</option>
+            </select>
           </div>
           <button type="submit" className="login-button">
             Login
