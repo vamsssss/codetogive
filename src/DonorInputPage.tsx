@@ -5,7 +5,7 @@ const DonorInputPage: React.FC = () => {
   const [form, setForm] = useState({
     organization: "",
     availableFood: "",
-    tags: [],
+    tags: [] as string[], // Explicitly typing tags as a string array
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -17,17 +17,18 @@ const DonorInputPage: React.FC = () => {
     const { value } = e.target;
     setForm((prevForm) => ({
       ...prevForm,
-      tags: value.split(",").map((tag) => tag.trim()),
+      tags: value.split(",").map((tag) => tag.trim()), // Split and trim tags
     }));
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Submitting donor data:", form);
+    // Add logic to submit form data to your backend or state management
   };
 
   return (
-    <div className="fullscreen-container"> {/* Add the class here */}
+    <div className="fullscreen-container">
       <div className="input-box">
         <h2>Donor Information Input</h2>
         <form onSubmit={handleSubmit}>
@@ -56,7 +57,7 @@ const DonorInputPage: React.FC = () => {
             <input
               type="text"
               name="tags"
-              value={form.tags.join(", ")}
+              value={form.tags.join(", ")} // Join tags array into a string
               onChange={handleTagChange}
               required
             />
