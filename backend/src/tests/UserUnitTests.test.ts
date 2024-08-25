@@ -6,7 +6,6 @@ import { Request, Response } from 'express';
 // Mock UserService
 const mockUserService: jest.Mocked<IUserService> = {
   createUser: jest.fn(),
-  updateUser: jest.fn(),
   deleteUser: jest.fn(),
   getUser: jest.fn(),
   findUserByEmail: jest.fn(),

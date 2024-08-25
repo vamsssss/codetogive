@@ -9,33 +9,46 @@ class UserServiceImpl implements IUserService {
   async createUser(data: UserCreateInput): Promise<User> {
     const hashedPassword = await bcrypt.hash(data.password, 10);
 
-    return await prisma.user.create({
+    const location = await prisma.location.create({
       data: {
-        email: data.email,
-        name: data.name,
-        role: data.role,
-        size: data.size,
-        password: hashedPassword,
-        tags: {
-          connect: data.tags,
-        },
+        lat: data.location.lat,
+        lng: data.location.lng,
       },
     });
-  }
 
-  async updateUser(id: number, data: UserCreateInput): Promise<User | null> {
-    return await prisma.user.update({
-      where: { id },
-      data: {
-        email: data.email,
-        name: data.name,
-        role: data.role,
-        size: data.size,
-        tags: {
-          connect: data.tags,
-        },
+    let userData = {
+      email: data.email,
+      password: hashedPassword,
+      tags: {
+        connect: data.tags.map(tagId => ({ id: tagId })),
       },
-    });
+      location: {
+        connect: {id: location.id},
+      },
+    };
+
+    let user: User;
+    
+    if (data.role === 'donor') {
+      user = await prisma.user.create({
+        data: {
+          ...userData,
+          donor: {create: {}},
+        },
+      });
+    } else {
+      user = await prisma.user.create({
+        data: {
+          ...userData,
+          beneficiary: {
+            create: {
+              size: data.size,
+            }
+          },
+        },
+      });
+    }
+    return user;
   }
 
   async deleteUser(id: number): Promise<User | null> {
@@ -70,3 +83,4 @@ class UserServiceImpl implements IUserService {
 }
 
 export default new UserServiceImpl();
+

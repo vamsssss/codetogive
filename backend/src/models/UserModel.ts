@@ -1,15 +1,14 @@
-import { PrismaClient, User, Tag } from '@prisma/client';
+import { PrismaClient, Beneficiary, User, Donor, Tag, Location, Listing} from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 interface UserCreateInput {
-    email: string;
-    name?: string;
-    role: string;
-    password: string;
-    tags: { id: number }[];
-    size?: number;
-    location: { id: number, lat: number, lng: number};
+  email: string;
+  role: 'donor' | 'beneficiary';
+  password: string;
+  size: number;
+  tags: number[];
+  location: { lat: number, lng: number};
 }
 
-export {prisma, UserCreateInput, User};
+export {prisma, UserCreateInput, Beneficiary, User, Donor, Tag, Location, Listing};
