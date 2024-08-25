@@ -7,6 +7,9 @@ import TryTelegram from "./TryTelegram";
 import LeftPanel from "./LeftPanel";
 import CardList from "./CardList";
 import MapMarkers from "./MapMarkers";
+import LoginPage from "./LoginPage"; // Import the LoginPage component
+import RegistrationPage from "./RegistrationPage"; // Import the RegistrationPage component
+import DonorInputPage from "./DonorInputPage"; // Import the DonorInputPage component
 
 function App() {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -28,7 +31,7 @@ function App() {
   };
 
   const handleLogOutClick = () => {
-    navigate("/"); //replace with login page path
+    navigate("/login"); // Redirect to the login page
   };
 
   const handleMinPaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -137,6 +140,37 @@ function App() {
           </div>
         }
       />
+      <Route path="/beneficiaries" element={
+        <div className={"container"}>
+          <LeftPanel
+            tags={tags}
+            selectedTags={selectedTags}
+            onTagClick={handleTagClick}
+            onProfileClick={handleProfileClick}
+            onLogOutClick={handleLogOutClick}
+            minPax={minPax}
+            maxPax={maxPax}
+            onMinPaxChange={handleMinPaxChange}
+            onMaxPaxChange={handleMaxPaxChange}
+          />
+          <div className="right">
+            <div className="card-list-container">
+              <CardList filteredCards={filteredCards} />
+            </div>
+            <div className="card-count-wrapper">
+              <div className="card-count-container">
+                <span>{filteredCards.length} item(s)</span>
+              </div>
+            </div>
+            <div className="map-markers-container">
+              <MapMarkers cardData={filteredCards} />
+            </div>
+          </div>
+        </div>
+      } />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegistrationPage />} />
+      <Route path="/donor-input" element={<DonorInputPage />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/trymaps" element={<TryMaps />} />
       <Route path="/trytelegram" element={<TryTelegram />} />
