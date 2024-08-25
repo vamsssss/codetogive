@@ -1,12 +1,20 @@
 import React from "react";
 import './LandingPage.css'
+import {useNavigate} from "react-router-dom";
 
 const LandingPage = () => {
+    const navigate = useNavigate();
+    const handleLogin = () => {
+        navigate('/login')
+    }
+    const handleRegister = () => {
+        navigate('/register')
+    }
     return (
         <div className="full-container">
             <div className="top-panel">
-                <button className="button">Login</button>
-                <button className="button">Sign up</button>
+                <button className="button" onClick={handleLogin}>Login</button>
+                <button className="button" onClick={handleRegister}>Sign up</button>
             </div>
             <div className="upper-container">
                 <p className="line-1">Spread Your Love</p>
