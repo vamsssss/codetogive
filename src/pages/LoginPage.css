@@ -1,63 +1,70 @@
+/* Container for the login page */
 .fullscreen-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
   height: 100vh;
-  background-color: #242424;
+  background-color: #f5f5f5;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+/* Styling the login form box */
 .login-box {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  max-width: 400px;
   padding: 2rem;
-  background-color: #FEF3ED;
+  background-color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  color: #213547;
 }
 
-.log-h2 {
+/* Header styling */
+h2 {
   text-align: center;
   margin-bottom: 1.5rem;
   font-size: 2em;
-  color: black;
+  color: #213547;
 }
 
-.login-form {
-  width: 800px;
-}
-
+/* Form group for each input field */
 .form-group {
   margin-bottom: 1.5rem;
-  width: 100%;
-  max-width: 800px;
 }
 
+/* Labels for the input fields */
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
   color: #213547;
-  text-align: left;
 }
 
-.form-group input {
+/* Input and select styling */
+.form-group input,
+.form-group select {
   width: 100%;
-  padding: 10px;
+  padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  background-color: #fff;
+  font-size: 1rem;
   color: #000;
-  background-color: #ffffff;
+  appearance: none;
 }
 
+.form-group select {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 0.65rem auto;
+  padding-right: 1.5rem;
+  cursor: pointer;
+}
+
+/* Styling for the login button */
 .login-button {
   width: 100%;
-  max-width: 800px;
   padding: 0.75rem;
   background-color: #ff7008;
   color: white;
@@ -67,13 +74,13 @@
   font-size: 1rem;
   font-weight: 500;
   transition: background-color 0.25s, border-color 0.25s;
-  margin-top: 1.5rem;
 }
 
 .login-button:hover {
   background-color: #e68900;
 }
 
+/* Redirect link styling */
 .redirect-link {
   text-align: center;
   margin-top: 1rem;
@@ -89,4 +96,25 @@
 
 .redirect-link a:hover {
   text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .login-box {
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .form-group label,
+  .form-group input,
+  .form-group select {
+    font-size: 0.875rem;
+  }
+
+  .login-button {
+    padding: 0.5rem;
+  }
 }
