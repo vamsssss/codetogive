@@ -30,8 +30,9 @@ const LoginPage: React.FC = () => {
         <h2 className="login-h2">Login</h2>
         <form className="login-form-group" onSubmit={handleLogin}>
           <div>
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input
+              id="email"
               type="email"
               value={email}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -41,8 +42,9 @@ const LoginPage: React.FC = () => {
             />
           </div>
           <div>
-            <label>Password</label>
+            <label htmlFor="password">Password</label>
             <input
+              id="password"
               type="password"
               value={password}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -52,8 +54,9 @@ const LoginPage: React.FC = () => {
             />
           </div>
           <div>
-            <label>Login as</label>
+            <label htmlFor="userType">Login as</label>
             <select
+              id="userType"
               value={userType}
               onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                 setUserType(e.target.value)
@@ -74,7 +77,7 @@ const LoginPage: React.FC = () => {
         <div className="redirect-link">
           <p>
             Don't have an account?{" "}
-            <a onClick={handleRedirectToRegister}>
+            <a onClick={handleRedirectToRegister} role="button" style={{cursor: 'pointer'}}>
               Register here
             </a>
           </p>
