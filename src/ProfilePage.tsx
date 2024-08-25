@@ -43,7 +43,7 @@ const ProfilePage = () => {
           <h2>Edit Profile</h2>
         </div>
         <form className="profile-form" onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className="profile-form-group">
             <label>Name</label>
             <input
               type="text"
@@ -52,7 +52,7 @@ const ProfilePage = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="form-group">
+          <div className="profile-form-group">
             <label>Email</label>
             <input
               type="email"
@@ -61,7 +61,7 @@ const ProfilePage = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="form-group">
+          <div className="profile-form-group">
             <label>Address</label>
             <input
               type="text"
@@ -70,7 +70,7 @@ const ProfilePage = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="form-group">
+          <div className="profile-form-group">
             <label>Contact Number</label>
             <input
               type="text"
@@ -79,7 +79,7 @@ const ProfilePage = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="form-group">
+          <div className="profile-form-group">
             <label>Password</label>
             <input
               type="password"

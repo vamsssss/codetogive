@@ -38,19 +38,19 @@
     max-width: 800px;
   }
   
-  .form-group {
+  .profile-form-group {
     margin-bottom: 15px;
     width: 100%;
     text-align: left;
   }
   
-  .form-group label {
+  .profile-form-group label {
     display: block;
     margin-bottom: 5px;
     color: black;
   }
   
-  .form-group input {
+  .profile-form-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
