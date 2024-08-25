@@ -26,12 +26,12 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
 }) => {
   return (
     <div className={"leftPanel"}>
-      <img
+      {/*<img
         src="src/assets/mock-profile-pic.jpg"
         alt="Profile"
         className="profile-photo"
-      />
-      <p className="filter-text">Filter by your needs</p>
+  /> */}
+      <h3 className="filter-text">Filter by your needs</h3>
       <div className="tags-container">
         {tags.map((tag) => (
           <div

@@ -48,7 +48,7 @@
   display: flex;
   height: 100%;
   width: 100vw;
-  background-color: lightblue;
+  background-color: #FEF3ED;
   border-radius: 10px;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .filter-text {
-  margin-bottom: 20px;
+  margin-bottom: 80px;
   font-size: 1.2rem;
   text-align: center;
   color: black;
@@ -81,6 +81,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+  margin-bottom: 40px;
 }
 
 .tag {
