@@ -76,7 +76,7 @@ const RegistrationPage: React.FC = () => {
             <select
               id="userType"
               name="userType"
-              value={form.userType}
+              value={form.userType} // Ensure the select value is bound to form.userType
               onChange={handleChange}
               required
             >
