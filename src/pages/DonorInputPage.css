@@ -1,69 +1,56 @@
-/* Ensure the body and html elements take up the full viewport */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background-color: white; /* Set the background color to white */
-  font-family: Arial, sans-serif;
-}
-
-/* Fullscreen flexbox container */
 .donor-input-container {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100vh; /* Full viewport height */
-  background-color: white; /* White background for the entire container */
+  height: 100vh;
+  background-color: white;
 }
 
-/* Teal section styling */
 .teal-section {
-  background-color: #b2dfdb; /* Teal color */
-  width: 50%; /* 50% of the screen width */
-  padding: 40px; /* Increased padding for better spacing */
+  background-color: #b2dfdb;
+  width: 50%;
+  padding: 40px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 40px;
 }
 
-/* Style for the form headings */
 .teal-section h2 {
   margin-bottom: 20px;
   color: black;
 }
 
 /* Form group styling */
-.form-group {
+.donate-form-group {
   margin-bottom: 15px;
 }
 
-/* Label styling */
-.form-group label {
+.donate-form-group label {
   display: block;
   margin-bottom: 5px;
-  font-weight: bold;
+  text-align: left;
+  color: black;
 }
 
-/* Input field styling */
-.form-group input {
+.donate-form-group input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  background-color: white;
+  color: black;
 }
 
-/* Button group styling */
-.button-group {
+.button-group-donate {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-/* Submit button styling */
-.submit-button {
+.submit-button-donate {
   padding: 10px 20px;
   background-color: #00796b;
   color: white;
@@ -93,7 +80,6 @@ html, body {
   background-color: #d32f2f; /* Darker red on hover */
 }
 
-/* Logos section styling */
 .logos-section {
   width: 50%; /* 50% of the screen width */
   padding: 40px; /* Increased padding for better spacing */
@@ -105,14 +91,12 @@ html, body {
   background-color: white; /* White background for the logos section */
 }
 
-/* Style for the logos section heading */
 .logos-section h2 {
   margin-bottom: 20px;
   text-align: center;
   color: black;
 }
 
-/* Logos container styling */
 .logos-container {
   display: flex;
   flex-wrap: wrap;

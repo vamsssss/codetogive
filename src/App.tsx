@@ -115,7 +115,7 @@ function App() {
       <Route
         path="/beneficiaries"
         element={
-          <div className={"container"}>
+          <div className={"main-container"}>
             <LeftPanel
               tags={tags}
               selectedTags={selectedTags}

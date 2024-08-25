@@ -75,7 +75,7 @@ const RegistrationPage: React.FC = () => {
 
   return (
     <LoadScript googleMapsApiKey="AIzaSyBAFDKKOMyejno9kqGkgjhOVwKG3B49n4U" libraries={libraries}>
-      <div className="fullscreen-container">
+      <div className="register-fullscreen-container">
         <div className="registration-box">
           <h2 className="reg-h2">Register</h2>
           <form className="register-form" onSubmit={handleSubmit}>

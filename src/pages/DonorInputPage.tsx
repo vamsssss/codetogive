@@ -54,7 +54,7 @@ const DonorInputPage: React.FC = () => {
       <div className="teal-section">
         <h2>Tell Us what you can donate here!</h2>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className="donate-form-group">
             <label>Organization Name</label>
             <input
               type="text"
@@ -64,7 +64,7 @@ const DonorInputPage: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="donate-form-group">
             <label>Available Food</label>
             <input
               type="text"
@@ -74,7 +74,7 @@ const DonorInputPage: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="donate-form-group">
             <label>Tags (comma separated)</label>
             <input
               type="text"
@@ -84,7 +84,7 @@ const DonorInputPage: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="donate-form-group">
             <label>Address</label>
             <input
               type="text"
@@ -94,7 +94,7 @@ const DonorInputPage: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="donate-form-group">
             <label>Number of Pax</label>
             <input
               type="number"
@@ -104,8 +104,8 @@ const DonorInputPage: React.FC = () => {
               required
             />
           </div>
-          <div className="button-group">
-            <button type="submit" className="submit-button">
+          <div className="button-group-donate">
+            <button type="submit" className="submit-button-donate">
               Submit
             </button>
             <button type="button" onClick={handleLogout} className="logout-button">
