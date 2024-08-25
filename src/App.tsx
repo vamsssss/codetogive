@@ -3,7 +3,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import ProfilePage from "./ProfilePage";
 import TryMaps from "./TryMaps";
-import TryTelegram from "./TryTelegram";
+import Telegram from "./Telegram";
 import LeftPanel from "./LeftPanel";
 import CardList from "./CardList";
 import MapMarkers from "./MapMarkers";
@@ -170,10 +170,10 @@ function App() {
       } />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegistrationPage />} />
-      <Route path="/donor-input" element={<DonorInputPage />} />
+      <Route path="/donate" element={<DonorInputPage />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/trymaps" element={<TryMaps />} />
-      <Route path="/trytelegram" element={<TryTelegram />} />
+      <Route path="/broadcast" element={<Telegram />} />
     </Routes>
   );
 }

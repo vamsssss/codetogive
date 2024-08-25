@@ -1,41 +1,56 @@
-/* TryTelegram.css */
 .container {
     background-color: #FEF3ED;
     padding: 20px;
     display: flex;
+    flex-direction: column; /* Arrange children vertically */
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
-  }
-  
-  .form {
+}
+
+h2 {
+    margin-bottom: 20px; /* Space between the heading and the form */
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Font family */
+}
+
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .input-field {
-    width: 300px;
-    height: 100px;
-    margin-bottom: 10px;
+}
+
+.input-field {
+    width: 800px;
+    height: 400px;
+    margin-bottom: 50px;
     background-color: white;
     color: black;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 20px; /* Add padding for spacing around text */
     box-sizing: border-box;
-  }
-  
-  .submit-button {
+    font-size: 16px; /* Ensure consistent font size */
+    line-height: 1.5; /* Adjust line height for readability */
+    text-align: left; /* Align text to the left */
+    resize: none; /* Disable resizing if needed */
+    overflow: auto; /* Add scrollbars if text overflows */
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Font family */
+}
+
+.input-field::placeholder {
+    color: #888; /* Placeholder color */
+    opacity: 1; /* Ensure placeholder color is visible */
+}
+
+.submit-button {
     padding: 10px 20px;
     border: none;
     background-color: #007bff;
     color: white;
     cursor: pointer;
     border-radius: 4px;
-  }
-  
-  .submit-button:hover {
+}
+
+.submit-button:hover {
     background-color: #0056b3;
-  }
-  
+}

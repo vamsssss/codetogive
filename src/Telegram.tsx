@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import axios from 'axios';
-import './Telegram.css';
+import axios from "axios";
+import "./Telegram.css";
 
-const TryTelegram = () => {
+const Telegram = () => {
   const [message, setMessage] = useState("");
 
   const TELEGRAM_API_TOKEN = "7526920561:AAHukgpeBHmBYJVFTCdd-wvtwvc2mKG-his";
@@ -29,18 +29,20 @@ const TryTelegram = () => {
 
   return (
     <div className="container">
+      <h2>Create a Broadcast Message</h2>
       <form onSubmit={handleSubmit} className="form">
-        <input
-          type="text"
+        <textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Enter your message"
           className="input-field"
         />
-        <button type="submit" className="submit-button">Broadcase</button>
+        <button type="submit" className="submit-button">
+          Broadcast
+        </button>
       </form>
     </div>
   );
 };
 
-export default TryTelegram;
+export default Telegram;
