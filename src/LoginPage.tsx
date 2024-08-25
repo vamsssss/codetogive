@@ -23,7 +23,7 @@ const LoginPage: React.FC = () => {
     <div className="fullscreen-container">
       <div className="login-box">
         <h2>Login</h2>
-        <form onSubmit={handleLogin}>
+        <form class="login-form" onSubmit={handleLogin}>
           <div className="form-group">
             <label>Email</label>
             <input

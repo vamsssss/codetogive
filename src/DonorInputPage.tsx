@@ -29,8 +29,8 @@ const DonorInputPage: React.FC = () => {
   return (
     <div className="fullscreen-container"> {/* Add the class here */}
       <div className="input-box">
-        <h2>Donor Information Input</h2>
-        <form onSubmit={handleSubmit}>
+        <h2>Donation Information</h2>
+        <form className="donor-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Organization Name</label>
             <input

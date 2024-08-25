@@ -6,6 +6,9 @@ import TryMaps from "./TryMaps";
 import TryTelegram from "./TryTelegram";
 import LeftPanel from "./LeftPanel";
 import CardList from "./CardList";
+import DonorInput from "./DonorInputPage";
+import LoginPage from "./LoginPage";
+import RegistrationPage from "./RegistrationPage";
 import MapMarkers from "./MapMarkers";
 
 function App() {
@@ -140,6 +143,9 @@ function App() {
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/trymaps" element={<TryMaps />} />
       <Route path="/trytelegram" element={<TryTelegram />} />
+      <Route path="/donor" element={<DonorInput />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegistrationPage />} />
     </Routes>
   );
 }

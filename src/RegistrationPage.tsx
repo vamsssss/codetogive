@@ -33,7 +33,7 @@ const RegistrationPage: React.FC = () => {
     <div className="fullscreen-container">
       <div className="registration-box">
         <h2>Register</h2>
-        <form onSubmit={handleSubmit}>
+        <form class="register-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Name</label>
             <input
