@@ -24,6 +24,8 @@ const LandingPage = () => {
 
                 <div className="first">
                     <img src="src/assets/landing-1.png" alt="Image 1"/>
+                    <img src="src/assets/semi-first.png" alt="Image 6"/>
+
                 </div>
                 <div className="second">
                     <img src="src/assets/landing-2.png" alt="Image 2"/>
@@ -36,6 +38,7 @@ const LandingPage = () => {
                 </div>
                 <div className="fifth">
                     <img src="src/assets/landing-5.png" alt="Image 5"/>
+                    <img src="src/assets/semi-last.png" alt="Image 5"/>
                 </div>
                 {/* Add more images as needed */}
             </div>

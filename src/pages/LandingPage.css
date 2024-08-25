@@ -17,6 +17,7 @@
     justify-content: center;
     flex-direction: column;
     z-index: 3;
+    margin-bottom: -50px;
     /*position: fixed;*/
 }
 .image-container {
@@ -47,7 +48,7 @@
 
 }
 .line-2 {
-    font-size: 45px;
+    font-size: 48px;
     line-height: 0;
     font-style: italic;
     font-weight: 900;
@@ -57,6 +58,14 @@
 
 .first {
     margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+.first img {
+    margin: 3px;
+    width: 220px;
+    height: 400px;
 }
 .second {
     margin-top: 15%;
@@ -69,5 +78,12 @@
 }
 .fifth {
     right: 0;
+    display: flex;
+    flex-direction: column;
+    margin-right: -5px;
+    margin-top: 5%;
+}
+.fifth img {
+    margin: 3px ;
 }
 /* Add more nth-child styles for more images */
