@@ -16,13 +16,14 @@ datasource db {
 model User {
   id           Int           @id @default(autoincrement())
   email        String        @unique
-  name         String
   password     String
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
   donor        Donor?        @relation("Donor")
   beneficiary  Beneficiary?  @relation("Beneficiary")
   tags      Tag[]    @relation("UserTags")
+  location     Location     @relation(fields: [locationId], references: [id])
+  locationId   Int          
 }
 
 model Donor {
@@ -53,7 +54,7 @@ model Listing {
   id             Int          @id @default(autoincrement())
   title          String
   description    String
-  quantity       Int
+  estimatedFoodCount       Int
   donorId        Int
   donor          Donor        @relation(fields: [donorId], references: [userId])
   tags           Tag[]        @relation("ListingTags")
@@ -74,4 +75,5 @@ model Location {
   id           Int   @id @default(autoincrement())
   lat          Float 
   lng          Float    
+  users        User[] 
 }
